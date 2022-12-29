@@ -1,0 +1,6 @@
+# git ignore files
+# Ignore private settings
+.git-credentials
+# Outputs in the examples folder
+Beispiele/*.png
+Beispiele/*.csv
