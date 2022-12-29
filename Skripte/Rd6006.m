@@ -1,8 +1,12 @@
 classdef Rd6006 < handle
-  % Class for serial / usb communication with the Korad KA3005P Power Supply
-  % Use also for RND 320-KA3005P
+  % Class for serial / usb communication with the Joy-It or Riden Power Supply RD6006
   %
-  % Based on Korad Documentation "KA Series Communication Protocol.pdf"
+  % Reverse Engineeing of the Modbus Protocoll:
+  % https://github.com/msillano/RD6006-Super-power-supply
+  % https://github.com/Baldanos/rd6006
+  %
+  % Unterstützt dem Modbus RTU (Seriell über USB Port) und Modbus TCP (mit meinem modifizierten
+  % WLAN Modul, siehe, https://github.com/MathiasMoog/Rd6006ModbusTcp) 
   %
   % Den Pfad zu diesem Skript mit in den Suchpfad aufnehmen, z.B.
   % addpath( "OctaveElektro/Skripte" );
@@ -12,13 +16,17 @@ classdef Rd6006 < handle
   % Anleitung: https://octave.sourceforge.io/instrument-control/index.html
   %
   % Implemented:
-  %  - set and get voltage and current
+  %  - set and get voltage, current and power
   %  - switch on and off
+  %  - access date and time
+  %  - Battery functions (not testet)
+  %  - Memory access
+  %  - Voltage and current sweeps
   %
   % Missing:
   %  - Everything else
   %
-  % Copyright, 2021, Mathias Moog, Hochschule Ansbach, Deutschland, CC-BY-NC-SA
+  % Copyright, 2022, Mathias Moog, Hochschule Ansbach, Deutschland, CC-BY-NC-SA
 
   properties
     % Modbus Handle

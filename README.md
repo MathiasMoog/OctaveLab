@@ -8,7 +8,7 @@ Da ich fast nur Octave und fast nie - außer an der Hochschule in den PC Pools -
 
 In Octave sollte der Pfad so erweitert werden, dass das Skripte Verzeichnis aufgenommen wird, z.B.
 
-    addpath( [ myhome "/Elektro/Programme/OctaveLab" ] );
+    addpath( [ myhome "/Elektro/Programme/OctaveLab/Skripte" ] );
 
 Dann wird für alle Geräte die instrument-control Package benötigt. Falls sie nicht installiert ist, mit 
 
