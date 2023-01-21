@@ -2,7 +2,7 @@
 
 Ich verwende Octave sehr intensiv. Für Labor Automation ist Octave zwar nicht die erste Wahl, aber ich muss meist erfasste Daten auswerten, und das wiederum ist genau die Stärke von Octave.
 
-Da ich fast nur Octave und fast nie - außer an der Hochschule in den PC Pools - Matlab verwende werden die meisten Skripte nur in Octave lauffähig sein, aber die notwendigen Anpassugnen dürften nicht so gravierend sein. 
+Da ich fast nur Octave und fast nie - außer an der Hochschule in den PC Pools - Matlab verwende werden die meisten Skripte nur in Octave lauffähig sein, aber die notwendigen Anpassungen dürften nicht so gravierend sein. 
 
 ## Octave Vorbereitungen
 
@@ -30,6 +30,7 @@ Ich habe einige Geärte privat, andere stehen in den von mir genutzten Laboren d
 - BK Precision BK8500 - Elektronische Last
 - ELV FZ 7001 - Frequenzzähler
 - Fluke 8088 A - Tischmultimeter
+- Hameg HM 205-3 - Analog / Digital Oszilloskop (zusammen mit meinem HamegNanoInterface, https://github.com/MathiasMoog/HamegNanoInterface)
 - Joy-It JDS 6600 - Signal Generator
 - Joy-It RD 6006 - Netzgerät (Kompatibel zu Riden RD6006)
 - Korad KA 3005 P - Netzgerät, auch für RND 320-KA3005P
