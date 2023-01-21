@@ -2,7 +2,8 @@ classdef Hameg205 < handle
   % Class for serial communiction with the Hameg 205-3 Scope and the
   % Arduino Nano Interface
   %
-  % See my HamegNanoInterface project.
+  % See my HamegNanoInterface project on GitHub
+  % https://github.com/MathiasMoog/HamegNanoInterface
   %
   % The instrument control package is required for serial communication.
   % See https://gnu-octave.github.io/packages/instrument-control/
