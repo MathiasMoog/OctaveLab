@@ -226,11 +226,14 @@ classdef Sls60 < handle
       if ( line == -1)
         obj.dprintf(0,"Error: No Anwer from Electronic load. Check connection.\n");
       else
-        f = sprintf("\%f%s",unit);
-        [v,c] = sscanf(line,"%fV");
-        if (c~=1)
+	    % Adopt for Octave 9 !
+        f = sprintf("%%f%s",unit)
+        [v,c] = sscanf(line,f);
+        if (c<1)
           obj.dprintf(0,"Error: No numerical Value in Answer %s\n",line);
           v=NA;
+        else
+          v=v(1);
         end
       end
     end

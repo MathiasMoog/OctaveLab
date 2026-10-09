@@ -4,12 +4,18 @@
 
 % Instanz anlegen
 fl = Fluke8088A();
+fl.debugLevel=3;
 
 % Öffne den Com Port
-fl.connect( "COM39" )
+fl.connect( "COM32" )
 
 % Zeige Seriennummer an
 fl.getVersion( )
+
+% Zeige Rate an
+fl.getRate()
+% Setze Rate auf Medium
+fl.setRate("M")
 
 % Spannung auf primären Display
 %srl_write( s, "VDC\n" );

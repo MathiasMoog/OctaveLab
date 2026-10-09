@@ -43,3 +43,10 @@ Ich habe einige Geärte privat, andere stehen in den von mir genutzten Laboren d
 ## Hilfsfunktionen
 - serialPortReadLine - Ersatz für die readline Funktion aus dem instrument-control Paket wenn serialport verwendet wird.
 - srl_getl - Alte Implementierung für serial, ich habe noch nicht alle Klassen von serial auf serialport umgestellt.
+
+
+## Alternativen
+
+Meine OctaveLab Lösunge enthält nur das was ich häufige benötigt, und ich muss sie alleine pflegen.
+
+Ich überlege auf Sigrok umzusteigen https://sigrok.org/wiki/Main_Page

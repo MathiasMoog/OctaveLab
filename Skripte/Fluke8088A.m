@@ -44,40 +44,60 @@ classdef Fluke8088A < handle
       if (startsWith(com,"COM"))
         com =  [ "\\\\.\\" com ] ;
       end
-      % 1 als timeout ca. 100 ms, siehe http://wiki.octave.org/Instrument_control_package
-      obj.serialPort = serial(  com , 9600, 2 );
+      obj.dprintf(2,"Fluke8088A, connect with port %s\n",com);
+      % timeout ca. 100 ms, siehe http://wiki.octave.org/Instrument_control_package
+      obj.serialPort = serialport( com, "BaudRate", 9600, ...
+        "Timeout", 0.2, "DataBits", 8, "StopBits", 1, ...
+        "Parity", "none");
       pause(0.5)      % Warte ein klein wenig
-      srl_getl( obj.serialPort, '\n' )   % Lese die begrüßung
+      readline( obj.serialPort )   % Lese die begrüßung
     end
 
     % Disconnect from power supply. Close com port
     function disconnect( obj )
-      fclose( obj.serialPort );
       obj.serialPort = [];
     end
 
     % Get version and serial number
     function idn = getVersion( obj )
-      srl_write( obj.serialPort, "*IDN?\n" );
-      idn = srl_getl( obj.serialPort, '\n' );
+      write( obj.serialPort, "*IDN?\n" );
+      flush( obj.serialPort, "output" );% Output Flushend
+      idn = readline( obj.serialPort );
     end
+
+    % Set Rate, and check it ... S slow, M medium, F fast
+    function r = setRate( obj, rate )
+      write( obj.serialPort, ["RATE ", rate, "\n"] );
+      flush( obj.serialPort, "output" );% Output Flushend
+      % todo, Ausgabestrom leer lesen!
+      readline( obj.serialPort );
+      readline( obj.serialPort );
+      r = obj.getRate();
+    end
+
+    function r = getRate( obj )
+      write( obj.serialPort, "RATE?\n" );
+      r = serialPortReadLine( obj.serialPort, 13 );
+    endfunction
 
     % Aktuellen Messwert einlesen
     % i "1" oder "2"
     function v = getMeasurement( obj, i )
-      srl_write( obj.serialPort, [ "VAL", i, "?\n" ] );
+      flush( obj.serialPort, "input" );% Output Flushend
+      write( obj.serialPort, [ "VAL", i, "?\n" ] );
+      flush( obj.serialPort, "output" );% Output Flushend
       versuche=0;
       do
         pause(0.1);
-        l = srl_getl( obj.serialPort, '\n' );
-        if ( l!=-1)
+        l = serialPortReadLine( obj.serialPort, 13 );
+        if ( length(l)>0)
           [v, c] = sscanf(l, "%f");
           if (c==1)
             return
           end
         end
         versuche++;
-      until versuche>25;
+      until versuche>5;
       v=NA
     end
 

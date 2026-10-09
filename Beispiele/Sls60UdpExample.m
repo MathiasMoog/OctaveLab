@@ -4,10 +4,10 @@
 sls = Sls60();
 sls.debugLevel=17;
 
-sls.connect("192.168.178.64",18190);
+sls.connect("192.168.178.31",18190);
 
 
 u = sls.measureVoltage()
 
 
-%sls.disconnect();
+sls.disconnect();

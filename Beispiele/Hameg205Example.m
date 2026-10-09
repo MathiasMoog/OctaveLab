@@ -12,7 +12,7 @@ clear classes;
 hm = Hameg205();
 
 % Connect, adopt serial port!
-hm.connect("COM22");
+hm.connect("/dev/ttyUSB0");
 
 % Ask for two channels
 % If "DUAL" is inactive, the channel is returned twice

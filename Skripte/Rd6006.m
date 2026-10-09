@@ -13,7 +13,7 @@ classdef Rd6006 < handle
   %
   % Installation der instrument-control package mit
   % pkg -forge install instrument-control
-  % Anleitung: https://octave.sourceforge.io/instrument-control/index.html
+  % Anleitung: https://gnu-octave.github.io/packages/instrument-control/
   %
   % Implemented:
   %  - set and get voltage, current and power

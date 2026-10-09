@@ -44,10 +44,10 @@ ka.disconnect()
 
 
 % Ausgaben
-plot(Uv,Iv, "*-", Ur,Ir, "*-");
-xlabel("U");
-ylabel("I");
-legend("Aufsteigend", "Absteigend");
+%plot(Uv,Iv, "*-", Ur,Ir, "*-");
+%xlabel("U");
+%ylabel("I");
+%legend("Aufsteigend", "Absteigend");
 
 % Bei Bedarf die Kennline abspeichern.
 %csvwrite("test.csv", [Uv', Iv', Ur', Ir'] );

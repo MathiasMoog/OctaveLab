@@ -13,46 +13,43 @@
 
 % Instanz anlegen
 ka = KA3005P();
+% Lege Instanz an
+ut = Ut803();
+
+% Öffne Com Port
+ut.connect("/dev/ttyUSB0");
 
 % Com Port öffnen, bitte Anpassen ...
 
-ka.connect("COM23")
+ka.connect("/dev/ttyKA3005")
 %ka.connect("/dev/ttyACM0")
 ka.getVersion()
+M=[];
 
-% Spannungs - Strom Kennlinien
-% Erst mal Spannung auf 0
-ka.setVoltage( 0);
-% Maximal Strom 2 A
-ka.setCurrent( 1);
-% an schalten
-ka.setOnOff( 1);
+s=now();
 
-[ Uv, Iv ] = ka.voltageSweep( 0:.5:26, .1 )
+running=1
+while (running)
+  [value, unit] = ut.getValue()
+  u = ka.getVoltage()
+  i = ka.getCurrent()*1000;
+  M = [M; [now(),u,i,value*1000]];
+  plot((M(:,1)-s)*24*3600,M(:,2:end));
+  legend("U","I","I ut");
+  x = kbhit (1);
+	if (strcmp(x,"E"))
+    running = 0;
+    disp("Breche ab");
+  endif
+  pause(1);
+endwhile
 
-%[ Ur, Ir ] = ka.voltageSweep( 13:-.5:0, .1 )
-
-% aus schalten
-ka.setOnOff( 0 );
-
-plot(Uv,Iv)
-
-
-ka.disconnect()
-
-
-
-
-% Ausgaben
-plot(Uv,Iv, "*-", Ur,Ir, "*-");
-xlabel("U");
-ylabel("I");
-legend("Aufsteigend", "Absteigend");
 
 % Bei Bedarf die Kennline abspeichern.
-%csvwrite("test.csv", [Uv', Iv', Ur', Ir'] );
+csvwrite("mess.csv", M );
 
-
+% alles schließen
+ut.disconnect()
 % alles schließen
 ka.disconnect();
 
