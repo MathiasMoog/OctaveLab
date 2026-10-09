@@ -1,4 +1,4 @@
-E% Metrex4650Cr Beispiel, Daten einzeln anfordern (nicht im COMM Modus)
+% Metrex4650Cr Beispiel, Daten einzeln anfordern (nicht im COMM Modus)
 % Siehe Kommentare in der Klasse Metrex4650Cr
 %
 % Aufbau und Verwendung
@@ -16,7 +16,7 @@ E% Metrex4650Cr Beispiel, Daten einzeln anfordern (nicht im COMM Modus)
 me = Metrex4650Cr();
 
 % Öffne Com Port
-me.connect("COM31");
+me.connect("COM23");
 
 % Messungen abholen, die kommen automatisch nur im COMM Modus
 running=1

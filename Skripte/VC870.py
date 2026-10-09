@@ -6,6 +6,10 @@
     The optical USB adapter creates a HID interface with vendor_id = 6790, product_id 57352, manufacturer WCH.CN, product USB to Serial.
 
     The communication chip is an HOITEK HE2325U
+
+    Develop Status:
+
+    - Tested under Windows and Linux
    
     Windows - hidapi 0.15.0
 

@@ -16,7 +16,7 @@ ka = KA3005P();
 
 % Com Port öffnen, bitte Anpassen ...
 
-ka.connect("COM23")
+ka.connect("COM24")
 %ka.connect("/dev/ttyACM0")
 ka.getVersion()
 
@@ -28,7 +28,7 @@ ka.setCurrent( 1);
 % an schalten
 ka.setOnOff( 1);
 
-[ Uv, Iv ] = ka.voltageSweep( 0:.5:26, .1 )
+[ Uv, Iv ] = ka.voltageSweep( 0:.5:12, .1 )
 
 %[ Ur, Ir ] = ka.voltageSweep( 13:-.5:0, .1 )
 
