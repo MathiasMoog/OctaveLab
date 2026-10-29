@@ -1,4 +1,4 @@
-% Experiment zur Kommunikation mit dem KORAD KA3005P Netzgerät
+% Experiment zur Kommunikation mit dem JoyIt Netzgerät
 % Siehe Kommentare in der Klasse Rd6006
 %
 % Umgang mit den Speichern. Es sind die Speicher 0 bis 9 vorhanden.
