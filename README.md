@@ -1,5 +1,7 @@
 # Octave Skript zum Umgang mit E-Technik Laborgeräten und zur Schaltungsauslegung
 
+**Achtung:** Auslaufend. Ich bin von Octave auf Python umgestiegen, siehe  https://gitlab.com/MathiasMoog/PyLab. Hier folgen nur noch minimale Anpassungen.
+
 Ich verwende Octave sehr intensiv. Für Labor Automation ist Octave zwar nicht die erste Wahl, aber ich muss meist erfasste Daten auswerten, und das wiederum ist genau die Stärke von Octave.
 
 Da ich fast nur Octave und fast nie - außer an der Hochschule in den PC Pools - Matlab verwende werden die meisten Skripte nur in Octave lauffähig sein, aber die notwendigen Anpassungen dürften nicht so gravierend sein. 
